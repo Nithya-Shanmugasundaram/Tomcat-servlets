@@ -13,16 +13,16 @@ public class stu_logout extends  HttpServlet{
 
 	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {	
+	  try
+	{
 	  HttpSession session = req.getSession();
-	if(session.getAttribute("roll_no")!=null)
-	{ 
-	  session.removeAttribute("roll_no");
 	  session.invalidate();
 	  res.setStatus(200);
 	}
-	 else
+ 	catch (Exception e)
 	{
-	   res.setStatus(500);
+		res.setStatus(500);
 	}
+
     }
 }

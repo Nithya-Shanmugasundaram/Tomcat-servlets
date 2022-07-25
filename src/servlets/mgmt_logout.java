@@ -13,16 +13,15 @@ public class mgmt_logout extends  HttpServlet{
 
 	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {	
+	 try
+	{
 	  HttpSession session = req.getSession();
-        if(session.getAttribute("mgmtname")!=null)
-	   {
-		session.removeAttribute("mgmtname");
-		session.invalidate();
-		res.setStatus(200);
-	  }
-	  else
-	  {
+	  session.invalidate();
+	  res.setStatus(200);
+	}
+ 	catch (Exception e)
+	{
 		res.setStatus(500);
-	  }
+	}
     }
 }

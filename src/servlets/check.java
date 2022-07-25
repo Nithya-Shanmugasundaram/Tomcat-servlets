@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class check {
 	Connectivity o =new Connectivity();
 	Connection con = o.Connective();
-	int check_roll_no(int roll_no) throws SQLException
+	public int check_roll_no(int roll_no) throws SQLException
 	{
 		String query="select roll_no from student_details where roll_no="+roll_no+" ;";
 		try {

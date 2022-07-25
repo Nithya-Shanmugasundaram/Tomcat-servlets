@@ -1,0 +1,7 @@
+<Context reloadable="true" privileged="true">
+<Realm className="org.apache.catalina.realm.JAASRealm"
+	appName="studentDB_ember"
+	userClassNames="auth.UserPrincipal"
+	roleClassNames="auth.RolePrincipal" />
+
+</Context>
