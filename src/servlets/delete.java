@@ -15,14 +15,6 @@ public class delete extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		 res.setStatus(500);
-		 return;
-	}
-	else
-	{
 	try {
 		int roll_no=Integer.parseInt(req.getParameter("roll_no"));
 		Delete obj= new Delete();
@@ -42,7 +34,7 @@ public class delete extends HttpServlet {
 			System.out.println(e);
 			res.setStatus(500);
 		}
-}
+
 	
     }
 }

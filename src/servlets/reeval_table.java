@@ -19,14 +19,6 @@ public class reeval_table extends HttpServlet {
     
     public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		res.setStatus(500);
-		return;
-	}
-	else
-	{
 		try
 		{ 
 			JSONArray jarr = new JSONArray();
@@ -48,6 +40,5 @@ public class reeval_table extends HttpServlet {
 			System.out.println(e);
 			res.setStatus(500);
 		}
-	}
    }
 }

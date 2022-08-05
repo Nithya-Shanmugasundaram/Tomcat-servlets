@@ -17,14 +17,6 @@ public class cgpa_data extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		res.setStatus(500);
-		return;
-	}
-	else
-	{
 		try {
 		JSONArray jarr = new JSONArray();
 		double cgpa=Double.parseDouble(req.getParameter("cgpa"));
@@ -52,7 +44,7 @@ public class cgpa_data extends HttpServlet {
 			System.out.println(e);
 			res.setStatus(500);
 		}
-	}
+	
 	
     }
 }

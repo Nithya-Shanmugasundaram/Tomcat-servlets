@@ -60,7 +60,7 @@ public class user_role_check extends HttpServlet
 	}
 	catch(Exception e)
 	{
-		System.out.println(e);
+		e.printStackTrace();
 		res.setStatus(500);
 		//res.sendRedirect(req.getContextPath() + "/error.jsp");
 		//res.setStatus(500);

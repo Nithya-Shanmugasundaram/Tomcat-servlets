@@ -180,6 +180,15 @@
  <url-pattern>/sys_logout</url-pattern>
  </servlet-mapping>
 
+ <servlet>
+ <servlet-name>verify_login</servlet-name>
+ <servlet-class>servlets.verify_login</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ <servlet-name>verify_login</servlet-name>
+ <url-pattern>/verify_login</url-pattern>
+ </servlet-mapping>
+
 
 <servlet>
  <servlet-name>user_role_check</servlet-name>
@@ -190,29 +199,43 @@
  <url-pattern>/user_role_check</url-pattern>
  </servlet-mapping>
 
+<servlet>
+ <servlet-name>GoogleLogin</servlet-name>
+ <servlet-class>auth_google.GoogleLogin</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ <servlet-name>GoogleLogin</servlet-name>
+ <url-pattern>/GoogleLogin</url-pattern>
+ </servlet-mapping>
+
+
+<!--
 <security-constraint>
     <web-resource-collection>
          <web-resource-name>management</web-resource-name>
-         <url-pattern>/#/management</url-pattern>
+         <url-pattern>/management</url-pattern>
     </web-resource-collection>
     <auth-constraint>
          <role-name>management</role-name>
     </auth-constraint>
 </security-constraint>
 
-<security-role>
-    <role-name>management</role-name>
-</security-role>
+
 
 <security-constraint>
     <web-resource-collection>
          <web-resource-name>student</web-resource-name>
-         <url-pattern>/#/student</url-pattern>
+         <url-pattern>/student</url-pattern>
     </web-resource-collection>
     <auth-constraint>
          <role-name>student</role-name>
     </auth-constraint>
 </security-constraint>
+-->
+<!--
+<security-role>
+    <role-name>management</role-name>
+</security-role>
 
 <security-role>
     <role-name>student</role-name>
@@ -220,8 +243,8 @@
 
 <security-constraint>
     <web-resource-collection>
-         <web-resource-name>login-main</web-resource-name>
-         <url-pattern>/#/login-main</url-pattern>
+         <web-resource-name>index</web-resource-name>
+         <url-pattern>/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
          <role-name>management</role-name>
@@ -234,11 +257,11 @@
      <auth-method>FORM</auth-method>
      <realm-name>studentDB_ember</realm-name>
      <form-login-config>
-          <form-login-page>/#/loginpage</form-login-page>
-          <form-error-page>/#/loginpage</form-error-page>
+          <form-login-page>/login_bla.jsp</form-login-page>
+          <form-error-page>/login_bla.jsp</form-error-page>
      </form-login-config>
 </login-config>
- 
+ -->
 
 
 </web-app>

@@ -15,16 +15,7 @@ public class update extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	String sess= (String)session.getAttribute("mgmtname");
-	System.out.println("the session is: "+sess);
-	if(sess==null)
-	{
-		res.setStatus(400);
-		return;
-	}
-	else
-	{
+
 		try 
 		{
 		String name=req.getParameter("name");
@@ -50,6 +41,6 @@ public class update extends HttpServlet {
 			System.out.println(e);
 			res.setStatus(500);
 		}
-}
+
     }
 }

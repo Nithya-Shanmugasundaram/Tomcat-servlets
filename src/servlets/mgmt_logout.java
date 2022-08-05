@@ -1,7 +1,6 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +15,7 @@ public class mgmt_logout extends  HttpServlet{
 	 try
 	{
 	  HttpSession session = req.getSession();
+	  session.removeAttribute("email");
 	  session.invalidate();
 	  res.setStatus(200);
 	}

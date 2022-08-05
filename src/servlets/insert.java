@@ -16,15 +16,7 @@ public class insert extends HttpServlet {
 
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		res.setStatus(500);
-	}
-	else
-	{
-		//String id=session.getId();
-		//System.out.println(id);
+	
 		try {
 		String name=req.getParameter("name");
 		String dept=req.getParameter("dept");
@@ -51,6 +43,6 @@ public class insert extends HttpServlet {
 			System.out.println(e);
 			res.setStatus(500);
 		}
-	}
+	
     }
 }

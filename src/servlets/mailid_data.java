@@ -17,14 +17,6 @@ public class mailid_data extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		res.setStatus(500);
-		return;
-	}
-	else
-	{
 		try {
 		JSONArray jarr = new JSONArray();
 
@@ -53,7 +45,6 @@ public class mailid_data extends HttpServlet {
 			res.setStatus(500);
 			System.out.println(e);
 		}
-	}
 	
     }
 }

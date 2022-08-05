@@ -16,14 +16,6 @@ public class reevaluation extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-HttpSession session = req.getSession(false);
-	if(session.getAttribute("mgmtname")==null)
-	{
-		res.setStatus(500);
-		return;
-	}
-	else
-	{
 		try {
 		int sem_no=Integer.parseInt(req.getParameter("sem_no"));
 		int roll_no=Integer.parseInt(req.getParameter("roll_no"));
@@ -49,7 +41,6 @@ HttpSession session = req.getSession(false);
 			System.out.println(e);
 			res.setStatus(500);
 		}
-}
 	
     }
 }

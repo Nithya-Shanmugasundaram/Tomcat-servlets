@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class login extends HttpServlet
 {
@@ -24,7 +21,7 @@ public class login extends HttpServlet
 	{
 		String id  = req.getParameter("id");
         	String pwd = req.getParameter("pwd");
-
+			
 		try
 		{
 			//Integer.parseInt(id);
@@ -35,6 +32,8 @@ public class login extends HttpServlet
 			{
 				res.setStatus(200);
 				System.out.println("vaild "+roll_no1);
+				/**/HttpSession session = req.getSession(true);
+				session.setAttribute("role", "student");
 				res.getWriter().print("student");
 			}
 			else
@@ -49,6 +48,8 @@ public class login extends HttpServlet
         		{
 				res.setStatus(200);
 				System.out.println("vaild "+id);
+				/**/HttpSession session = req.getSession(true);
+				session.setAttribute("role", "management");
 				res.getWriter().print("management");
        	 	}
         		else

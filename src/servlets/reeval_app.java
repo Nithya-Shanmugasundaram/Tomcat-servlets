@@ -18,14 +18,6 @@ public class reeval_app extends HttpServlet {
     
     public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
     {
-	HttpSession session = req.getSession(false);
-	if(session.getAttribute("roll_no")==null)
-	{
-		res.setStatus(500);
-		return;
-	}
-	else
-	{
 		try {
 		String sub=req.getParameter("sub");
 		int sem_no=Integer.parseInt(req.getParameter("sem_no"));
@@ -47,7 +39,7 @@ public class reeval_app extends HttpServlet {
 		catch (Exception e) {
 			res.setStatus(500);
 		}
-}
+
 
     }
 }

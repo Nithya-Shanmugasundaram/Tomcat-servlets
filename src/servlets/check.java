@@ -32,13 +32,29 @@ public class check {
 		
 		return roll_no;
 	}
-	/*public static void main (String[] args) throws SQLException
+	
+	public String check_mailid(String mailid) throws SQLException
 	{
-		Connectivity o = new Connectivity();
-		Connection con =o.Connective();
-		System.out.println(con);
+		String s="";
+		String query="select mailid from student_details where mailid= '"+mailid+"' ;";
+		try {
+			Statement stmt = con.createStatement();
+			ResultSet rs= stmt.executeQuery(query);
+			if(rs.next())
+			{
+				mailid=rs.getString("mailid");
+				//System.out.println(roll_no);
+				return mailid;
+			}
+			else
+			{
+				return s;
+			}
+		} 
+		catch (SQLException e) {
+			System.out.println(e);
+		}
 		
-		check obj = new check();
-		System.out.println(obj.check_roll_no(2));
-	}*/
+		return s;
+	}
 }
