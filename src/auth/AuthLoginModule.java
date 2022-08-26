@@ -33,7 +33,26 @@ public class AuthLoginModule implements LoginModule {
 	  int flag=0;
 	try
 	{
-	   try
+        if(password.equals("null"))
+        {
+            if(name.equals("management"))
+            {
+                System.out.println("vaild "+name);
+                return flag+2;
+            }
+            if(name.equals("student"))
+            {
+                System.out.println("vaild "+name);
+                return flag+2;
+            }
+            else
+            {
+                return flag+3;
+            }
+        }
+        else
+        {
+            try
 		{
 			int roll_no= Integer.parseInt(name);
 			
@@ -63,6 +82,8 @@ public class AuthLoginModule implements LoginModule {
 				return flag+3;
         		}
 		}
+        }
+	   
 	}
 	catch(Exception e)
 	{
@@ -73,6 +94,8 @@ public class AuthLoginModule implements LoginModule {
     }
     @Override
     public boolean login() throws LoginException {
+
+        System.out.println("hello login module");
         Callback[] callback = new Callback[2];
         callback[0] = new NameCallback("login");
         callback[1] = new PasswordCallback("password", true);

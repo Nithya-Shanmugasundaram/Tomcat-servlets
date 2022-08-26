@@ -15,7 +15,6 @@ public class stu_logout extends  HttpServlet{
 	  try
 	{
 	  HttpSession session = req.getSession();
-	  session.removeAttribute("email");
 	  session.invalidate();
 	  res.setStatus(200);
 	}

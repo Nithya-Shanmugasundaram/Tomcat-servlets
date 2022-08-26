@@ -49,7 +49,7 @@ public class GoogleLogin extends HttpServlet {
                     String s_mailid = obj.check_mailid(email);
                     
                     String m_mailid ="manageautomail@gmail.com";
-                    HttpSession session = req.getSession(true);
+                    //HttpSession session = req.getSession(true);
                     if(email.equals(m_mailid))
                     {
                          role ="management";
@@ -65,9 +65,12 @@ public class GoogleLogin extends HttpServlet {
                         if(email!=null)
                         {
                             //session.setAttribute("m_mailid", email);
-                            session.setAttribute("role", "management");
-                            out.println(role);
+                            //session.setAttribute("role", "management");
+                           out.println(role);
                             resp.setStatus(200);
+                            String password ="null";
+                            System.out.println(role);
+                            req.login(role, password);
                             return;
                         }
                      /*  else
@@ -83,9 +86,14 @@ public class GoogleLogin extends HttpServlet {
                         if(email!=null)
                         {
                             //session.setAttribute("s_mailid", email);
-                            session.setAttribute("role", "student");
+                            //session.setAttribute("role", "student");
                             resp.setStatus(200);
                             out.println(role);
+                            
+                           String password ="null";
+                           System.out.println(role);
+                           req.login(role, password);
+
                             return;
                         }
                       /*   else
@@ -111,7 +119,8 @@ public class GoogleLogin extends HttpServlet {
             e.printStackTrace();
             resp.setContentType("text/plain");
             resp.setStatus(400);
-            out.println("Something went wrong");
+            resp.sendRedirect("/login_bla.jsp");
+            //out.println("Something went wrong");
             return;
         }
     }

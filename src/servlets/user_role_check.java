@@ -41,15 +41,15 @@ public class user_role_check extends HttpServlet
 			res.getWriter().println(req.isUserInRole(m_role));*/
 		System.out.println(req.getUserPrincipal());
 		System.out.println(req.getRemoteUser());
-            System.out.println(req.isUserInRole(m_role));
-			if(req.isUserInRole(m_role))
+           // System.out.println(req.isUserInRole(m_role));
+			if(req.getRemoteUser().equals(m_role))
 			{
 				System.out.println(req.isUserInRole(m_role));
 				res.setStatus(200);
 				res.getWriter().print(m_role);
 				//res.sendRedirect(req.getContextPath() + "/management/management.jsp");
 			}
-			if(req.isUserInRole(s_role))
+			else
 			{
 				System.out.println(req.isUserInRole(s_role));
 				res.setStatus(200);
